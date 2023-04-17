@@ -306,7 +306,7 @@ if ($map->ReadConfig($configfile))
 			'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>');
 		fwrite($fd,"<base href=\"$map->basehref\">");
 		if($map->htmlstylesheet != '') fwrite($fd,'<link rel="stylesheet" type="text/css" href="'.$map->htmlstylesheet.'" />');
-		fwrite($fd,'<meta http-equiv="refresh" content="300" /><title>' . $map->ProcessString($map->title, $map) . '</title></head><body>');
+		fwrite($fd,'<meta http-equiv="refresh" content="30" /><title>' . $map->ProcessString($map->title, $map) . '</title></head><body>');
 
 		if ($map->htmlstyle == "overlib")
 		{
@@ -318,9 +318,7 @@ if ($map->ReadConfig($configfile))
 
 		fwrite($fd, $map->MakeHTML());
 		fwrite($fd,
-			'<hr /><span id="byline">Network Map created with <a href="http://www.network-weathermap.com/?vs='
-			. $WEATHERMAP_VERSION . '">PHP Network Weathermap v' . $WEATHERMAP_VERSION
-			. '</a></span></body></html>');
+			'</body></html>');
 		fclose ($fd);
 	}
 
